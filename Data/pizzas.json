@@ -1,21 +1,21 @@
 [
   {
     "title": "margaréta",
-    "pichUrl": "/assets/margareta.png",
+    "pichUrl": "https://G3rzson.github.io/pizza_app_react/assets/margareta.png",
     "ingredients": "paradicsomszószos alap, mozzarella, bazsalikom",
     "price32": 3790,
     "price45": 5690
   },
   {
     "title": "gombás",
-    "pichUrl": "/assets/gomba.png",
+    "pichUrl": "https://G3rzson.github.io/pizza_app_react/assets/gomba.png",
     "ingredients": "paradicsomszószos alap, mozzarella, gomba, szalámi, paprika",
     "price32": 3790,
     "price45": 5690
   },   
   {
     "title": "paradicsomos",
-    "pichUrl": "/assets/pomodoro.png",
+    "pichUrl": "https://G3rzson.github.io/pizza_app_react/assets/pomodoro.png",
     "ingredients": "fokhagymás tejfeles alap, mozzarella, bazsalikom, koktélparadicsom",
     "price32": 3790,
     "price45": 5690
