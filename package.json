@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://G3rzson.github.io/pizza_app_react",
+  "homepage": "https://g3rzson.github.io/pizza_app_react",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

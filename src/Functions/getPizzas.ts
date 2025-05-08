@@ -6,7 +6,7 @@ export async function getPizzas(
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   try {
-    const response = await fetch("/Data/pizzas.json");
+    const response = await fetch(`${import.meta.env.BASE_URL}Data/pizzas.json`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
