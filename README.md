@@ -13,5 +13,7 @@ Használt technológiák: HTML, Bootstrap, TypeScript, React + Vite, ChatGpt,
 
 Képek: Canva
 
-Leírás: Pizzázó mintaoldal csak frontend elemekkel
+Leírás: Pizzázó mintaoldal csak frontend elemekkel főként bootstrap stílusok használata
+
+Fejlesztés: A termékekhez id hozzáadása és az alapján a mennyiség számláló megírása
 
