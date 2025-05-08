@@ -16,13 +16,14 @@ export function PizzaProvider({ children }: { children: ReactNode }) {
   const [pizzas, setPizzas] = useState<DailyMenuType[]>([]);
   const [loading, setLoading] = useState<boolean>(true); 
   const [error, setError] = useState<string | null>(null);  
+  const [orders, setOrders] = useState<DailyMenuType[]>([])
 
   useEffect(() => {
     getPizzas(setPizzas, setError, setLoading);
   }, []);
   
   return (
-    <PizzaContext.Provider value={{ pizzas, setPizzas, loading, setLoading, error, setError}}>
+    <PizzaContext.Provider value={{ pizzas, setPizzas, loading, setLoading, error, setError, orders, setOrders}}>
       {children}
     </PizzaContext.Provider>
   );

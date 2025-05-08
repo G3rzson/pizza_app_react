@@ -6,15 +6,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { PizzaProvider } from "./Context/PizzaContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <Router basename="/pizza_app_react">
       <PizzaProvider>
         <App />
       </PizzaProvider>
-    </BrowserRouter>
+    </Router>
   </StrictMode>
 );

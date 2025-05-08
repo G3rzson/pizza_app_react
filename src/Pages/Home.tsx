@@ -10,8 +10,16 @@ export default function Home() {
   const [meret, setMeret] = useState<number>(32);
   const [dailyMenu, setDailyMenu] = useState<DailyMenuType | null>(null);
 
-  const { pizzas, setPizzas, loading, setLoading, error, setError } =
-    usePizzaContext();
+  const {
+    pizzas,
+    setPizzas,
+    loading,
+    setLoading,
+    error,
+    setError,
+    orders,
+    setOrders,
+  } = usePizzaContext();
 
   useEffect(() => {
     getPizzas(setPizzas, setError, setLoading);
@@ -20,6 +28,36 @@ export default function Home() {
   useEffect(() => {
     setDailyMenu(pizzas[Math.floor(Math.random() * pizzas.length)]);
   }, [pizzas]);
+
+  const handleAddToCart = (pizza: DailyMenuType, selectedMeret: number) => {
+    const pizzaToAdd = {
+      title: pizza.title,
+      pichUrl: pizza.pichUrl,
+      ingredients: pizza.ingredients,
+      price32: pizza.price32,
+      price45: pizza.price45,
+      size: selectedMeret,
+    };
+
+    // Ellenőrizzük, hogy benne van-e már a kosárban
+    const isPizzaInCart = orders.some(
+      (order) =>
+        order.title === pizzaToAdd.title && order.size === pizzaToAdd.size
+    );
+
+    if (isPizzaInCart) {
+      // Ha már benne van, eltávolítjuk
+      setOrders(
+        orders.filter(
+          (order) =>
+            order.title !== pizzaToAdd.title || order.size !== pizzaToAdd.size
+        )
+      );
+    } else {
+      // Ha nincs benne, hozzáadjuk
+      setOrders((prevState) => [...prevState, pizzaToAdd]);
+    }
+  };
 
   return (
     <div className="container">
@@ -75,8 +113,25 @@ export default function Home() {
                       Ft
                     </span>
                   </p>
-                  <button type="button" className="btn btn-success">
-                    Hozzáadás a Kosárhoz!
+                  <button
+                    type="button"
+                    onClick={() => handleAddToCart(dailyMenu, meret)}
+                    className={`btn ${
+                      orders.some(
+                        (order) =>
+                          order.title === dailyMenu.title &&
+                          order.size === meret
+                      )
+                        ? "btn-danger"
+                        : "btn-success"
+                    }`}
+                  >
+                    {orders.some(
+                      (order) =>
+                        order.title === dailyMenu.title && order.size === meret
+                    )
+                      ? "Eltávolítás a Kosárból!"
+                      : "Hozzáadás a Kosárhoz!"}
                   </button>
                 </div>
               </>

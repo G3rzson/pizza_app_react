@@ -4,6 +4,8 @@ export type DailyMenuType = {
   ingredients: string,
   price32: number,
   price45: number,
+  size?: number
+  quantity?: number
 }
 
 export type LoaderProp = {
@@ -17,4 +19,6 @@ export type PizzaContextType = {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
   error: string | null,
   setError: React.Dispatch<React.SetStateAction<string | null>>
+  orders: DailyMenuType[], 
+  setOrders: React.Dispatch<React.SetStateAction<DailyMenuType[]>>,
 };
